@@ -1,4 +1,5 @@
 import './App.css';
+import Chat from "./Components/Chat";
 
 // io is going to be used to establish a connection to Socket.io
 import io from "socket.io-client";
@@ -35,6 +36,8 @@ function App() {
          />
 
          <button onClick={joinRoom}>Join Room</button>
+
+         <Chat socket={socket} username={username} room={room}/>
       </div>
    );
 }
