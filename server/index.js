@@ -42,7 +42,8 @@ io.on("connection", (socket) => { // This means we're listening for an event tha
 
    // This event will handle each message being sent from the frontend 
    socket.on("send_message", (data) => {
-      console.log(data);
+      // .to(data.room) is making sure we only send these messages out to that specific room
+      socket.to(data.room).emit("receive_message", data);
    });
 
    socket.on("disconnect", () => {  // This is "disconnecting" from the server. If someone closes the page or leaves the chatroom/server
