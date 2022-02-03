@@ -32,10 +32,10 @@ const io = new Server(server, {
 // We're also going to put everything inside of this Socket.io connection because we only want to be listening to events if the User has actually connected to the server
 // Also, when we're listening for events, we're going to be running everything as a callback function
 io.on("connection", (socket) => { // This means we're listening for an event that has the same id or name "connection"|"socket" is the thing we're going to use to listen for events  
-   console.log(socket.id); // When someone connects to Socket.io, they automatically get an id. We can access that id by using socket
+   console.log(`User Connected: ${socket.id}`); // When someone connects to Socket.io, they automatically get a random id. We can access that id by using socket
 
    socket.on("disconnect", () => {  // This is "disconnecting" from the server. If someone closes the page or leaves the chatroom/server
-      console.log("User Disconnected", socket.id);
+      console.log(`User Disconnected: ${socket.id}`);
    })
 });
 
