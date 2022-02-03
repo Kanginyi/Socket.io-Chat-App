@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-// Going to be sending and receiving message inside of this component through Socket.io
+// Going to be sending and receiving messages inside of this component through Socket.io
 
 function Chat({socket, username, room}) {
    const [currentMessage, setCurrentMessage] = useState("");
+   const [allMessages, setAllMessages] = useState([]);
 
    // Function to send a message, asynchronous, also emits a socket event that the backend should be listening for
    const sendMessage = async () => {
@@ -17,23 +18,39 @@ function Chat({socket, username, room}) {
 
          // Emit a socket message that matches the backend
          await socket.emit("send_message", messageData);
+         setAllMessages(list => [...list, messageData]);
       }
    };
 
    // Listen for any changes inside of our Socket.io server, essentially whenever we receive a new message
    useEffect(() => {
       socket.on("receive_message", (data) => {
-         console.log(data);
+         setAllMessages(list => [...list, data]);
       });
    }, [socket]);
 
    return (
-      <div>
+      <div className="chat-window">
          <div className="chat-header">
             <p>Chatting in {room}</p>
          </div>
 
-         <div className="chat-body"></div>
+         <div className="chat-body">
+            {allMessages.map(messageSent => {
+               return <div className="message" id={username === messageSent.sender ? "you" : "other"}>
+                        <div>
+                           <div className="message-content">
+                              <p>{messageSent.message}</p>
+                           </div>
+
+                           <div className="message-meta">
+                              <p id="time">{messageSent.time}</p>
+                              <p id="sender">{messageSent.sender}</p>
+                           </div>
+                        </div>
+                      </div>
+            })}
+         </div>
 
          <div className="chat-footer">
             <input
