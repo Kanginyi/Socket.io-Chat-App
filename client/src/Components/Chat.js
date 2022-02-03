@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Going to be sending and receiving message inside of this component through Socket.io
 
 function Chat({socket, username, room}) {
    const [currentMessage, setCurrentMessage] = useState("");
 
+   // Function to send a message, asynchronous, also emits a socket event that the backend should be listening for
    const sendMessage = async () => {
       if (currentMessage !== "") {
          const messageData = {
@@ -18,6 +19,13 @@ function Chat({socket, username, room}) {
          await socket.emit("send_message", messageData);
       }
    };
+
+   // Listen for any changes inside of our Socket.io server, essentially whenever we receive a new message
+   useEffect(() => {
+      socket.on("receive_message", (data) => {
+         console.log(data);
+      });
+   }, [socket]);
 
    return (
       <div>
