@@ -34,6 +34,12 @@ const io = new Server(server, {
 io.on("connection", (socket) => { // This means we're listening for an event that has the same id or name "connection"|"socket" is the thing we're going to use to listen for events  
    console.log(`User Connected: ${socket.id}`); // When someone connects to Socket.io, they automatically get a random id. We can access that id by using socket
 
+   // Whenever someone triggers the event of "join_room", we want to then use socket.join() from Socket.io's library to join based on the id from the front end
+   socket.on("join_room", (data) => { // We can pass in the data, should recognize it from the frontend
+      socket.join(data); // This data will match whatever you pass as the second argument in the frontend .emit() function
+      console.log(`User with the ID of: ${socket.id} joined room: ${data}`);
+   })
+
    socket.on("disconnect", () => {  // This is "disconnecting" from the server. If someone closes the page or leaves the chatroom/server
       console.log(`User Disconnected: ${socket.id}`);
    })
