@@ -38,11 +38,16 @@ io.on("connection", (socket) => { // This means we're listening for an event tha
    socket.on("join_room", (data) => { // We can pass in the data, should recognize it from the frontend
       socket.join(data); // This data will match whatever you pass as the second argument in the frontend .emit() function
       console.log(`User with the ID of: ${socket.id} joined room: ${data}`);
-   })
+   });
+
+   // This event will handle each message being sent from the frontend 
+   socket.on("send_message", (data) => {
+      console.log(data);
+   });
 
    socket.on("disconnect", () => {  // This is "disconnecting" from the server. If someone closes the page or leaves the chatroom/server
       console.log(`User Disconnected: ${socket.id}`);
-   })
+   });
 });
 
 
