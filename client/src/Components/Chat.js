@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ScrollToBottom from "react-scroll-to-bottom";
 
 // Going to be sending and receiving messages inside of this component through Socket.io
 
@@ -36,20 +37,22 @@ function Chat({socket, username, room}) {
          </div>
 
          <div className="chat-body">
-            {allMessages.map(messageSent => {
-               return <div className="message" id={username === messageSent.sender ? "you" : "other"}>
-                        <div>
-                           <div className="message-content">
-                              <p>{messageSent.message}</p>
-                           </div>
+            <ScrollToBottom className="message-container">
+               {allMessages.map(messageSent => {
+                  return <div className="message" id={username === messageSent.sender ? "you" : "other"}>
+                           <div>
+                              <div className="message-content">
+                                 <p>{messageSent.message}</p>
+                              </div>
 
-                           <div className="message-meta">
-                              <p id="time">{messageSent.time}</p>
-                              <p id="sender">{messageSent.sender}</p>
+                              <div className="message-meta">
+                                 <p id="time">{messageSent.time}</p>
+                                 <p id="sender">{messageSent.sender}</p>
+                              </div>
                            </div>
                         </div>
-                      </div>
-            })}
+               })}
+            </ScrollToBottom>
          </div>
 
          <div className="chat-footer">
@@ -57,6 +60,7 @@ function Chat({socket, username, room}) {
                onChange={e => setCurrentMessage(e.target.value)}
                type="text"
                placeholder="Enter a message"
+               onKeyPress={e => {e.key === "Enter" && sendMessage()}}
             />
 
             <button onClick={sendMessage}>&#9658;</button>
