@@ -20,6 +20,7 @@ function Chat({socket, username, room}) {
          // Emit a socket message that matches the backend
          await socket.emit("send_message", messageData);
          setAllMessages(list => [...list, messageData]);
+         setCurrentMessage("");
       }
    };
 
@@ -60,6 +61,7 @@ function Chat({socket, username, room}) {
                onChange={e => setCurrentMessage(e.target.value)}
                type="text"
                placeholder="Enter a message"
+               value={currentMessage}
                onKeyPress={e => {e.key === "Enter" && sendMessage()}}
             />
 
