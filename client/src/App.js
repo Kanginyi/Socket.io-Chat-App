@@ -1,5 +1,6 @@
 import './App.css';
 import Chat from "./Components/Chat";
+import JoinRoom from "./Components/JoinRoom";
 
 // io is going to be used to establish a connection to Socket.io
 import io from "socket.io-client";
@@ -24,26 +25,17 @@ function App() {
    return (
       <div className="App">
          {showChatroom ?
-            <Chat socket={socket} username={username} room={room}/>
+            <Chat
+               socket={socket}
+               username={username}
+               room={room}
+            />
          : 
-            <div className="join-chat-container">
-               <h3>Join A Chatroom</h3>
-
-               <input
-                  onChange={e => setUsername(e.target.value)}
-                  type="text"
-                  placeholder="Enter a username"
-               />
-
-               <input
-                  onChange={e => setRoom(e.target.value)}
-                  type="text"
-                  placeholder="Enter Room ID"
-               />
-
-               <button onClick={joinRoom}>Join Room</button>
-            </div>
-         }
+            <JoinRoom
+               setUsername={setUsername}
+               setRoom={setRoom}
+               joinRoom={joinRoom}
+         />}
       </div>
    );
 }
