@@ -1,0 +1,82 @@
+#spacenook-header {
+   position: absolute;
+   top: 3rem;
+   
+   font-size: 2.75rem;
+   text-align: center;
+}
+
+.join-chat-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+
+.join-chat-container h2 {
+   font-size: 2em;
+   margin-bottom: .75rem;
+}
+
+/* Merriweather Regular 400 Font */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+.join-chat-container input {
+   height: 30px;
+   width: 85%;
+
+   margin: 7.5px;
+   padding: 17.5px;
+
+   border: 1.75px solid #ccc;
+   border-radius: 5px;
+
+   font-family: 'Merriweather', serif;
+   font-size: 15px;
+   color: var(--spacenook-color);
+   text-align: center;
+   
+   transition: 0.5s;
+}
+
+.join-chat-container input:focus {
+   width: 100%;
+   border-color: var(--spacenook-color);
+   border-radius: 20px;
+}
+
+.join-chat-container button {
+   width: 70%;
+
+   margin: 7.5px;
+   padding: 8.5px;
+
+   border: none;
+   border-radius: 5px;
+
+   background-color: var(--spacenook-color);
+   font-size: .85em;
+   font-weight: 600;
+   letter-spacing: .1em;
+   color: white;
+
+   transition: .25s;
+
+   cursor: pointer;
+}
+
+.join-chat-container button:hover, .join-chat-container button:focus {
+   background-color: #284b91;
+}
+
+.join-chat-container button:active {
+   box-shadow: 0 0 0 1.5em rgba(0, 0, 0, 0);
+   animation: joinRoom .25s;
+}
+
+@keyframes joinRoom {
+   0% {
+      box-shadow: 0 0 0 0 var(--spacenook-color);
+   }
+}
