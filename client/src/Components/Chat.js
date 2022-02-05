@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import MessagesList from "./MessagesList";
 import MessageInput from "./MessageInput";
 
+import "../Stylings/Chat.css";
+
 // Going to be sending and receiving messages inside of this component through Socket.io
 
 function Chat({socket, username, room}) {
@@ -33,7 +35,7 @@ function Chat({socket, username, room}) {
    }, [socket]);
 
    return (
-      <div className="chat-window">
+      <div className="chat-container">
          <div className="chat-header">
             <p>Chatting in {room}</p>
          </div>
