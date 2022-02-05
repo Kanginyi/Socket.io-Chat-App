@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ScrollToBottom from "react-scroll-to-bottom";
+import MessagesList from './MessagesList';
 
 // Going to be sending and receiving messages inside of this component through Socket.io
 
@@ -37,24 +37,10 @@ function Chat({socket, username, room}) {
             <p>Chatting in {room}</p>
          </div>
 
-         <div className="chat-body">
-            <ScrollToBottom className="message-container">
-               {allMessages.map(messageSent => {
-                  return <div className="message" id={username === messageSent.sender ? "you" : "other"}>
-                           <div>
-                              <div className="message-content">
-                                 <p>{messageSent.message}</p>
-                              </div>
-
-                              <div className="message-meta">
-                                 <p id="time">{messageSent.time}</p>
-                                 <p id="sender">{messageSent.sender}</p>
-                              </div>
-                           </div>
-                        </div>
-               })}
-            </ScrollToBottom>
-         </div>
+         <MessagesList
+            allMessages={allMessages}
+            username={username}
+         />
 
          <div className="chat-footer">
             <input
