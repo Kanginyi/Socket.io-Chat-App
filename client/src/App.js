@@ -24,18 +24,22 @@ function App() {
 
    return (
       <div className="App">
-         {showChatroom ?
-            <Chat
-               socket={socket}
-               username={username}
-               room={room}
-            />
-         : 
-            <JoinRoom
-               setUsername={setUsername}
-               setRoom={setRoom}
-               joinRoom={joinRoom}
-         />}
+         <h1>Welcome to SpaceNook Messenger</h1>
+         
+         {
+            showChatroom ?
+               <Chat
+                  socket={socket}
+                  username={username}
+                  room={room}
+               />
+            : 
+               <JoinRoom
+                  setUsername={setUsername}
+                  setRoom={setRoom}
+                  joinRoom={joinRoom}
+               />
+         }
       </div>
    );
 }
