@@ -16,6 +16,7 @@ function JoinRoom({setUsername, setRoom, joinRoom}) {
             type="text"
             placeholder="Enter Username"
             maxLength={15}
+            onKeyPress={e => e.key === "Enter" && joinRoom()}
          />
 
          <input
@@ -23,6 +24,7 @@ function JoinRoom({setUsername, setRoom, joinRoom}) {
             type="text"
             placeholder="Enter Room ID"
             maxLength={10}
+            onKeyPress={e => e.key === "Enter" && joinRoom()}
          />
 
          <button onClick={joinRoom}>JOIN ROOM</button>
