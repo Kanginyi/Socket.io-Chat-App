@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import MessagesList from './MessagesList';
+import MessagesList from "./MessagesList";
+import MessageInput from "./MessageInput";
 
 // Going to be sending and receiving messages inside of this component through Socket.io
 
@@ -42,17 +43,11 @@ function Chat({socket, username, room}) {
             username={username}
          />
 
-         <div className="chat-footer">
-            <input
-               onChange={e => setCurrentMessage(e.target.value)}
-               type="text"
-               placeholder="Enter a message"
-               value={currentMessage}
-               onKeyPress={e => {e.key === "Enter" && sendMessage()}}
-            />
-
-            <button onClick={sendMessage}>&#9658;</button>
-         </div>
+         <MessageInput
+            setCurrentMessage={setCurrentMessage}
+            currentMessage={currentMessage}
+            sendMessage={sendMessage}
+         />
       </div>
    );
 }
