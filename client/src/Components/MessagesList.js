@@ -12,7 +12,7 @@ function MessagesList({allMessages, username}) {
 
    return (
       <div className="chat-body">
-         <ScrollToBottom className="message-container">
+         <ScrollToBottom className="messages-list">
             {renderMessage}
          </ScrollToBottom>
       </div>
