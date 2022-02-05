@@ -35,7 +35,7 @@ function Chat({socket, username, room}) {
    }, [socket]);
 
    return (
-      <div className="chat-container">
+      <main className="chat-container">
          <div className="chat-header">
             <h2>Chatting in {room}</h2>
          </div>
@@ -50,7 +50,7 @@ function Chat({socket, username, room}) {
             currentMessage={currentMessage}
             sendMessage={sendMessage}
          />
-      </div>
+      </main>
    );
 }
 
