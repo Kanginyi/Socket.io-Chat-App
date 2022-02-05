@@ -2,7 +2,7 @@ import React from 'react';
 
 function MessageInput({setCurrentMessage, currentMessage, sendMessage}) {
    return (
-      <div className="chat-footer">
+      <div className="chat-input">
          <input
             onChange={e => setCurrentMessage(e.target.value)}
             type="text"
