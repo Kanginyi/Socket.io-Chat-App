@@ -3,6 +3,8 @@ import React from 'react';
 function JoinRoom({joinRoom, setUsername, setRoom}) {
    return (
       <div className="join-chat-container">
+         <h1>Welcome to SpaceNook Messenger</h1>
+
          <h3>Join A Chatroom</h3>
 
          <input
