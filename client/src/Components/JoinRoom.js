@@ -15,12 +15,14 @@ function JoinRoom({setUsername, setRoom, joinRoom}) {
             onChange={e => setUsername(e.target.value)}
             type="text"
             placeholder="Enter Username"
+            maxLength={15}
          />
 
          <input
             onChange={e => setRoom(e.target.value)}
             type="text"
             placeholder="Enter Room ID"
+            maxLength={10}
          />
 
          <button onClick={joinRoom}>JOIN ROOM</button>
