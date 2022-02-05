@@ -1,24 +1,19 @@
 import React from 'react';
+import Message from "./Message";
 import ScrollToBottom from "react-scroll-to-bottom";
 
 function MessagesList({allMessages, username}) {
+   const renderMessage = allMessages?.map(messageSent => {
+      return <Message
+               username={username}
+               messageSent={messageSent}
+             />
+   });
+
    return (
       <div className="chat-body">
          <ScrollToBottom className="message-container">
-            {allMessages.map(messageSent => {
-               return <div className="message" id={username === messageSent.sender ? "you" : "other"}>
-                        <div>
-                           <div className="message-content">
-                              <p>{messageSent.message}</p>
-                           </div>
-
-                           <div className="message-meta">
-                              <p id="time">{messageSent.time}</p>
-                              <p id="sender">{messageSent.sender}</p>
-                           </div>
-                        </div>
-                     </div>
-            })}
+            {renderMessage}
          </ScrollToBottom>
       </div>
    );
