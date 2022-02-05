@@ -1,16 +1,20 @@
 import React from 'react';
+import "../Stylings/JoinRoom.css";
 
-function JoinRoom({joinRoom, setUsername, setRoom}) {
+function JoinRoom({setUsername, setRoom, joinRoom}) {
    return (
-      <div className="join-chat-container">
-         <h1>Welcome to SpaceNook Messenger</h1>
+      <>
+      <h1 id="spacenook-header">
+         Welcome to SpaceNook Messenger
+      </h1>
 
-         <h3>Join A Chatroom</h3>
+      <div className="join-chat-container">
+         <h2>Join A Chatroom!</h2>
 
          <input
             onChange={e => setUsername(e.target.value)}
             type="text"
-            placeholder="Enter a username"
+            placeholder="Enter Username"
          />
 
          <input
@@ -19,8 +23,9 @@ function JoinRoom({joinRoom, setUsername, setRoom}) {
             placeholder="Enter Room ID"
          />
 
-         <button onClick={joinRoom}>Join Room</button>
+         <button onClick={joinRoom}>JOIN ROOM</button>
       </div>
+      </>
    );
 }
 
