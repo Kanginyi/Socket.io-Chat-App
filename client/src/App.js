@@ -23,9 +23,7 @@ function App() {
    }
 
    return (
-      <div className="App">
-         <h1>Welcome to SpaceNook Messenger</h1>
-         
+      <div className="App">      
          {
             showChatroom ?
                <Chat
