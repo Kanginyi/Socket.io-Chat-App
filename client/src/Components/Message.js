@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Message({username, messageSent}) {
    return (
@@ -12,8 +12,17 @@ function Message({username, messageSent}) {
             </div>
             
             <div className="message-info">
-               <p className="message-time">{messageSent.time}</p>
-               <p className="message-sender">{messageSent.sender}</p>
+               {username === messageSent.sender ?
+                  <>
+                     <p className="message-time">{messageSent.time}</p>
+                     <p className="message-sender">{messageSent.sender}</p>
+                  </>
+               :
+                  <>
+                     <p className="message-sender">{messageSent.sender}</p>
+                     <p className="message-time">{messageSent.time}</p>
+                  </>
+               }
             </div>
          </div>
       </div>
