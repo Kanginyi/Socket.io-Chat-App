@@ -82,6 +82,11 @@
    margin-left: 5px;
 }
 
+.you .message-sender {
+   margin-left: 5px;
+   font-weight: bold;
+}
+
 .other {
    justify-content: flex-start;
 }
@@ -96,13 +101,13 @@
    margin-right: 5px;
 }
 
-.message-time {
-   color: #AAA;
+.other .message-sender {
+   margin-right: 5px;
+   font-weight: bold;
 }
 
-.message-sender {
-   margin-left: 5px;
-   font-weight: bold;
+.message-time {
+   color: #AAA;
 }
 
 .chat-input {
