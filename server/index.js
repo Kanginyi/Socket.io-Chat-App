@@ -34,6 +34,9 @@ const io = new Server(server, {
 io.on("connection", (socket) => { // This means we're listening for an event that has the same id or name "connection"|"socket" is the thing we're going to use to listen for events  
    console.log(`User Connected: ${socket.id}`); // When someone connects to Socket.io, they automatically get a random id. We can access that id by using socket
 
+   // Broadcast will show to everyone except for the user who connected
+   // socket.broadcast.emit("message", "A user has joined the chat");
+
    // Whenever someone triggers the event of "join_room", we want to then use socket.join() from Socket.io's library to join based on the id from the front end
    socket.on("join_room", (data) => { // We can pass in the data, should recognize it from the frontend
       socket.join(data); // This data will match whatever you pass as the second argument in the frontend .emit() function
