@@ -1,11 +1,3 @@
-/* #spacenook-header {
-   position: absolute;
-   top: 3rem;
-   
-   font-size: 2.75rem;
-   text-align: center;
-} */
-
 .join-chat-container {
    display: flex;
    flex-direction: column;
