@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Message({username, messageSent}) {
+function Message({messageSent, currentUser}) {
    return (
       <div
          // classNames: message | you | other
-         className={`message ${username === messageSent.sender ? "you" : "other"}`}
+         className={`message ${messageSent.id === currentUser ? "you" : "other"}`}
       >
          <div>
             <div className="message-content">
@@ -12,7 +12,7 @@ function Message({username, messageSent}) {
             </div>
             
             <div className="message-info">
-               {username === messageSent.sender ?
+               {messageSent.id === currentUser ?
                   <>
                      <p className="message-time">{messageSent.time}</p>
                      <p className="message-sender">{messageSent.sender}</p>
