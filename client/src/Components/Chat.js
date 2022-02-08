@@ -3,6 +3,7 @@ import MessagesList from "./MessagesList";
 import MessageInput from "./MessageInput";
 
 import "../Stylings/Chat.css";
+import moment from "moment";
 
 // Going to be sending and receiving messages inside of this component through Socket.io
 
@@ -18,7 +19,8 @@ function Chat({socket, username, room, currentUser}) {
             room: room,
             sender: username,
             message: currentMessage,
-            time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes()
+            // time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes()
+            time: moment().format("h:ma")
          };
 
          // Emit a socket message that matches the backend
@@ -42,7 +44,7 @@ function Chat({socket, username, room, currentUser}) {
          </div>
 
          <MessagesList
-            allMessages={allMessages}
+            allMessages={allMessages}d
             currentUser={currentUser}
          />
 
