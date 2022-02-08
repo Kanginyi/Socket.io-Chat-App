@@ -15,11 +15,7 @@ function App() {
    const [showChatroom, setShowChatroom] = useState(false);
 
    const currentUser = socket.id;
-
-   socket.on("message", message => {
-      console.log(message);
-   })
-    
+   
    // onClick to join the room that we want to 
    const joinRoom = () => {
       if (username !== "" && room !== "") {
@@ -28,8 +24,18 @@ function App() {
       }
    }
 
+   const homeHeader = <h1 id="spacenook-font-size" className="spacenook-header">
+                        Welcome to SpaceNook Messenger
+                      </h1>
+   
+   const chatHeader = <h1 className="spacenook-header">
+                        Hello {username}!
+                      </h1>
+
    return (
-      <div className="App">      
+      <div className="App">
+         {showChatroom ? chatHeader : homeHeader}
+
          {
             showChatroom ?
                <Chat
