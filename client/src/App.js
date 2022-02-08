@@ -15,6 +15,10 @@ function App() {
    const [showChatroom, setShowChatroom] = useState(false);
 
    const currentUser = socket.id;
+
+   socket.on("message", message => {
+      console.log(message);
+   })
     
    // onClick to join the room that we want to 
    const joinRoom = () => {
