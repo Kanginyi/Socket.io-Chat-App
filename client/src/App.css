@@ -10,3 +10,15 @@
    background-color: #EEE;
    color: var(--spacenook-color);
 }
+
+.spacenook-header {
+   position: absolute;
+   top: clamp(2rem, 3vw, 3rem);
+   
+   font-size: clamp(1.425rem, 3vw, 2.75rem);
+   text-align: center;
+}
+
+#spacenook-font-size {
+   font-size: 2.5rem;
+}
