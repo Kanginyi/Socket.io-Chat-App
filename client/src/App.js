@@ -14,6 +14,8 @@ function App() {
    const [room, setRoom] = useState("");
    const [showChatroom, setShowChatroom] = useState(false);
 
+   const currentUser = socket.id;
+    
    // onClick to join the room that we want to 
    const joinRoom = () => {
       if (username !== "" && room !== "") {
@@ -30,6 +32,7 @@ function App() {
                   socket={socket}
                   username={username}
                   room={room}
+                  currentUser={currentUser}
                />
             : 
                <JoinRoom

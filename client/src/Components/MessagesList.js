@@ -2,11 +2,11 @@ import React from 'react';
 import Message from "./Message";
 import ScrollToBottom from "react-scroll-to-bottom";
 
-function MessagesList({allMessages, username}) {
+function MessagesList({allMessages, currentUser}) {
    const renderMessage = allMessages?.map(messageSent => {
       return <Message
-               username={username}
                messageSent={messageSent}
+               currentUser={currentUser}
              />
    });
 

@@ -6,7 +6,7 @@ import "../Stylings/Chat.css";
 
 // Going to be sending and receiving messages inside of this component through Socket.io
 
-function Chat({socket, username, room}) {
+function Chat({socket, username, room, currentUser}) {
    const [currentMessage, setCurrentMessage] = useState("");
    const [allMessages, setAllMessages] = useState([]);
 
@@ -14,6 +14,7 @@ function Chat({socket, username, room}) {
    const sendMessage = async () => {
       if (currentMessage !== "") {
          const messageData = {
+            id: currentUser,
             room: room,
             sender: username,
             message: currentMessage,
@@ -42,7 +43,7 @@ function Chat({socket, username, room}) {
 
          <MessagesList
             allMessages={allMessages}
-            username={username}
+            currentUser={currentUser}
          />
 
          <MessageInput
