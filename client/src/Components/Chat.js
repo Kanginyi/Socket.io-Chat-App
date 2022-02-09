@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import MessagesList from "./MessagesList";
 import MessageInput from "./MessageInput";
+import MessageUsers from './MessageUsers';
 
 import "../Stylings/Chat.css";
 import moment from "moment";
 
 // Going to be sending and receiving messages inside of this component through Socket.io
 
-function Chat({socket, username, room, currentUser}) {
+function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) {
    const [currentMessage, setCurrentMessage] = useState("");
    const [allMessages, setAllMessages] = useState([]);
 
@@ -38,13 +39,14 @@ function Chat({socket, username, room, currentUser}) {
    }, [socket]);
 
    return (
+      <>
       <main className="chat-container">
          <div className="chat-header">
             <h2>Chatting in {room}</h2>
          </div>
 
          <MessagesList
-            allMessages={allMessages}d
+            allMessages={allMessages}
             currentUser={currentUser}
          />
 
@@ -54,6 +56,9 @@ function Chat({socket, username, room, currentUser}) {
             sendMessage={sendMessage}
          />
       </main>
+
+         <MessageUsers socket={socket} username={username} room={room} allUsers={allUsers} setShowChatroom={setShowChatroom}/>
+      </>
    );
 }
 
