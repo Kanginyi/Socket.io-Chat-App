@@ -20,7 +20,6 @@ function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) 
             room: room,
             sender: username,
             message: currentMessage,
-            // time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes()
             time: moment().format("h:ma")
          };
 
@@ -57,7 +56,13 @@ function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) 
          />
       </main>
 
-         <MessageUsers socket={socket} username={username} room={room} allUsers={allUsers} setShowChatroom={setShowChatroom}/>
+         <MessageUsers
+            socket={socket}
+            username={username}
+            room={room}
+            allUsers={allUsers}
+            setShowChatroom={setShowChatroom}
+         />
       </>
    );
 }
