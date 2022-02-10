@@ -11,7 +11,12 @@ function MessageInput({setCurrentMessage, currentMessage, sendMessage}) {
             onKeyPress={e => {e.key === "Enter" && sendMessage()}}
          />
 
-         <button onClick={sendMessage}>&#9658;</button>
+         <button
+            onClick={sendMessage}
+            title="Send Message!"
+         >
+            &#9658;
+         </button>
       </div>
    );
 }
