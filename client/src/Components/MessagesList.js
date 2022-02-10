@@ -18,7 +18,13 @@ function MessagesList({allMessages, currentUser, socket, username, room, setShow
 
    return (
       <div className="chat-body">
-         <button onClick={leaveRoom} className="leave-room">Leave Room</button>
+         <button
+            onClick={leaveRoom}
+            className="leave-room"
+            title="Leave Current Room"
+         >
+            Leave Room
+         </button>
 
          <ScrollToBottom className="messages-list">
             {renderMessage}
