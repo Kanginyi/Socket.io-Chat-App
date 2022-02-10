@@ -20,7 +20,7 @@ function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) 
             room: room,
             sender: username,
             message: currentMessage,
-            time: moment().format("h:ma")
+            time: moment().format("h:mma")
          };
 
          // Emit a socket message that matches the backend
