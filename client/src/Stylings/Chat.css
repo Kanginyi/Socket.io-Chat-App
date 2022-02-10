@@ -1,3 +1,4 @@
+/* Chat.js */
 .chat-container {
    height: 500px;
    width: 350px;
@@ -20,12 +21,41 @@
    text-align: center;
 }
 
+/* MessageList.js */
 .chat-body {
    /* height: 415px; */
    height: 83.5%;
    background-color: white;
    border: 1px solid black;
    position: relative;
+}
+
+.leave-room {
+   cursor: pointer;
+   
+   height: 25px;
+   width: 100px;
+
+   position: absolute;
+   top: 0;
+   left: 125px;
+   z-index: 1;
+
+   border: 1px solid black;
+   border-top: none;
+
+   background-color: white;
+   color: var(--spacenook-color);
+   font-size: 16px;
+   font-weight: 600;
+
+   transition: 0.425s;
+}
+
+.leave-room:hover, .leave-room:focus {
+   color: white;
+   box-shadow: inset -3.5em 0 0 0 rgb(230, 15, 15),
+               inset 3.5em 0 0 0 rgb(230, 15, 15);
 }
 
 .messages-list {
@@ -36,6 +66,7 @@
    overflow-y: scroll;
 }
 
+/* Message.js */
 .message {
    height: auto;
    padding: 10px;
@@ -110,6 +141,7 @@
    color: #AAA;
 }
 
+/* MessageInput.js */
 .chat-input {
    height: 40px;
 
@@ -150,4 +182,12 @@
 
 .chat-input button:hover {
    background-color: #284b91;
+}
+
+/* MessageUsers.js */
+.chat-users {
+   margin-top: 1px;
+   padding: 5px;
+   border: 1px solid black;
+   position: relative;
 }
