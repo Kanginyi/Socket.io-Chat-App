@@ -38,7 +38,6 @@ function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) 
    }, [socket]);
 
    return (
-      <>
       <main className="chat-container">
          <div className="chat-header">
             <h2>Chatting in {room}</h2>
@@ -47,6 +46,11 @@ function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) 
          <MessagesList
             allMessages={allMessages}
             currentUser={currentUser}
+
+            socket={socket}
+            username={username}
+            room={room}
+            setShowChatroom={setShowChatroom}
          />
 
          <MessageInput
@@ -54,16 +58,12 @@ function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) 
             currentMessage={currentMessage}
             sendMessage={sendMessage}
          />
-      </main>
 
          <MessageUsers
             socket={socket}
-            username={username}
-            room={room}
             allUsers={allUsers}
-            setShowChatroom={setShowChatroom}
          />
-      </>
+      </main>
    );
 }
 
