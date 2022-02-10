@@ -33,7 +33,7 @@ function MessageUsers({allUsers}) {
                </div>
             : 
                <div className="chat-dropdown">
-                  Show All Users
+                  Show All Users ({allUsers.length})
                </div>
          }
       </div>
