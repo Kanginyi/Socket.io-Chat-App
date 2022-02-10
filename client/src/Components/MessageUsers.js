@@ -1,18 +1,18 @@
 import React from 'react';
 
-function MessageUsers({socket, username, room, allUsers, setShowChatroom}) {
-   const leaveRoom = () => {
-      socket.emit("leave_room", {username, room})
-
-      setShowChatroom(false);
-   }
+function MessageUsers({allUsers}) {
+   const renderUsers = allUsers?.map(user => {
+      return <p>{user.username}</p>
+   });
 
    return (
-      <details className="">
-         <summary>Bingo</summary>
-         {allUsers.map(data => <p>{data.username}</p>)}
-         <button onClick={leaveRoom}>Leave Room</button>
-      </details>
+
+      <div className="chat-users">
+         <div>
+            {renderUsers}
+         </div>
+      </div>
+
    );
 }
 
