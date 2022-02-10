@@ -195,6 +195,10 @@
    left: 5px;
    z-index: 1;
 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
    border: none;
    background-color: transparent;
 
@@ -241,6 +245,6 @@
 }
 
 .show-all-users::-webkit-scrollbar-track {
-   background-color: #EEE;
+   background-color: #DDD;
    border-radius: 0 0 9px 1px;
 }
