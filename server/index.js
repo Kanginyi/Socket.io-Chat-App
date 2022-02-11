@@ -52,7 +52,11 @@ io.on("connection", (socket) => { // This means we're listening for an event tha
          allRooms[data.room] = [{username: data.username, id: data.currentUser}];
       }
       
+      // Showing all users inside a specific room
       io.to(data.room).emit("all_users", allRooms[data.room]);
+
+      // Showing when a user joins a specific room
+      io.to(data.room).emit("user_join", allRooms[data.room]);
 
       console.log(`User ${data.username} with an ID of: ${socket.id} joined room: ${data.room}`);
    });
