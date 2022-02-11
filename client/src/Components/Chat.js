@@ -32,9 +32,22 @@ function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) 
 
    // Listen for any changes inside of our Socket.io server, essentially whenever we receive a new message
    useEffect(() => {
-      socket.on("receive_message", (data) => {
+      socket.on("receive_message", data => {
          setAllMessages(list => [...list, data]);
       });
+   }, [socket]);
+
+   // Send a message when users join the room
+   useEffect(() => {
+      socket.on("user_join", data => {
+         setAllMessages(list => [...list, {
+            id: socket.id,
+            room: room,
+            sender: `${room}-Bot`,
+            message: `${data[data.length - 1]?.username} joined room ${room}!`,
+            time: moment().format("h:mma")
+         }]);
+      })
    }, [socket]);
 
    return (
