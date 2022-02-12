@@ -70,9 +70,9 @@ io.on("connection", (socket) => { // This means we're listening for an event tha
    socket.on("leave_room", data => {
       socket.leave(data.room);
       
-      allRooms[data.room] = allRooms[data.room].filter(data => data.id !== socket.id);
+      allRooms[data.room] = allRooms[data.room]?.filter(data => data.id !== socket.id);
 
-      if (!allRooms[data.room].length) {
+      if (!allRooms[data.room]?.length) {
          delete allRooms[data.room];
       }
 
