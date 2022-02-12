@@ -43,7 +43,7 @@ function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) 
          setAllMessages(list => [...list, {
             id: socket.id,
             room: room,
-            sender: `${room}-Bot`,
+            sender: "SpaceNook Messenger",
             message: `${data[data.length - 1]?.username} joined room ${room}!`,
             time: moment().format("h:mma")
          }]);
