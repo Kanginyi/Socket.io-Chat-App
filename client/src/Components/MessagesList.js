@@ -1,13 +1,20 @@
 import React from 'react';
+import BotMessage from './BotMessage';
 import Message from "./Message";
 import ScrollToBottom from "react-scroll-to-bottom";
 
 function MessagesList({allMessages, currentUser, socket, username, room, setShowChatroom}) {
    const renderMessage = allMessages?.map(messageSent => {
-      return <Message
-               messageSent={messageSent}
-               currentUser={currentUser}
-             />
+      if (messageSent.sender === "SpaceNook Messenger") {
+         return <BotMessage
+                  messageSent={messageSent}
+                />
+      } else {
+         return <Message
+                  messageSent={messageSent}
+                  currentUser={currentUser}
+                />
+      }
    });
 
    const leaveRoom = () => {
