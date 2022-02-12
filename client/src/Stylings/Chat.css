@@ -114,6 +114,9 @@
 
 .you .message-sender {
    margin-left: 5px;
+}
+
+.message-sender {
    font-weight: bold;
 }
 
@@ -133,11 +136,46 @@
 
 .other .message-sender {
    margin-right: 5px;
-   font-weight: bold;
 }
 
 .message-time {
    color: #AAA;
+}
+
+/* BotMessage.js */
+.join-leave-room {
+   height: auto;
+   width: auto;
+   min-height: 40px;
+   width: 100%;
+
+   margin-right: 5px;
+   margin-left: 5px;
+   padding: 5px;
+
+   border: .5px solid #CCC;
+   border-radius: 5px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   overflow-wrap: break-word;
+   word-break: break-word;
+
+   background-color: #DDD;
+   font-weight: 600;
+   letter-spacing: 0.05em;
+}
+
+.bot {
+   display: flex;
+   flex-direction: column;
+}
+
+.bot .message-info {
+   display: flex;
+   justify-content: space-evenly;
 }
 
 /* MessageInput.js */
