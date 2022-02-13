@@ -36,7 +36,7 @@ const io = new Server(server, {
 // Those keys will hold arrays of usernames as their values
 const allRooms = {};
 
-io.on("connection", (socket) => { // This means we're listening for an event that has the same id or name "connection"|"socket" is the thing we're going to use to listen for events  
+io.on("connection", socket => { // This means we're listening for an event that has the same id or name "connection"|"socket" is the thing we're going to use to listen for events  
    console.log(`User Connected: ${socket.id}`); // When someone connects to Socket.io, they automatically get a random id. We can access that id by using socket
 
    // Broadcast will show to everyone except for the user who connected
