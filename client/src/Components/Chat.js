@@ -8,7 +8,7 @@ import moment from "moment";
 
 // Going to be sending and receiving messages inside of this component through Socket.io
 
-function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) {
+function Chat({socket, username, setUsername, room, setRoom, currentUser, allUsers, setShowChatroom}) {
    const [currentMessage, setCurrentMessage] = useState("");
    const [allMessages, setAllMessages] = useState([]);
 
@@ -62,7 +62,9 @@ function Chat({socket, username, room, currentUser, allUsers, setShowChatroom}) 
 
             socket={socket}
             username={username}
+            setUsername={setUsername}
             room={room}
+            setRoom={setRoom}
             setShowChatroom={setShowChatroom}
          />
 
