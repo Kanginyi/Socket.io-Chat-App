@@ -48,7 +48,9 @@ function App() {
                <Chat
                   socket={socket}
                   username={username}
+                  setUsername={setUsername}
                   room={room}
+                  setRoom={setRoom}
                   currentUser={currentUser}
                   allUsers={allUsers}
                   setShowChatroom={setShowChatroom}
