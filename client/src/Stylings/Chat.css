@@ -70,16 +70,14 @@
    height: auto;
    padding: 10px;
    display: flex;
+   flex-direction: column;
 }
 
 .message-content {
    height: auto;
-   width: auto;
    min-height: 40px;
    max-width: 150px;
 
-   margin-right: 5px;
-   margin-left: 5px;
    padding: 5px;
 
    border: .5px solid #CCC;
@@ -99,7 +97,7 @@
 }
 
 .you {
-   justify-content: flex-end;
+   align-items: flex-end;
 }
 
 .you .message-content {
@@ -121,7 +119,7 @@
 }
 
 .other {
-   justify-content: flex-start;
+   align-items: flex-start;
 }
 
 .other .message-content {
@@ -145,9 +143,8 @@
 /* BotMessage.js */
 .join-leave-room {
    height: auto;
-   width: auto;
    min-height: 40px;
-   width: 100%;
+   width: 97.5%;
 
    margin-right: 5px;
    margin-left: 5px;
