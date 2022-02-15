@@ -48,7 +48,20 @@ function Chat({socket, username, setUsername, room, setRoom, currentUser, allUse
             time: moment().format("h:mma")
          }]);
       })
-   }, [socket]);
+   }, [socket, room]);
+
+   // Send a message when users leave the room
+   useEffect(() => {
+      socket.on("user_leave", data => {
+         setAllMessages(list => [...list, {
+            id: data?.id,
+            room: room,
+            sender: "SpaceNook Messenger",
+            message: `${data?.username} left room ${room}!`,
+            time: moment().format("h:mma")
+         }]);
+      })
+   }, [socket, room]);
 
    return (
       <main className="chat-container">
