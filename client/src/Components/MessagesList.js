@@ -18,7 +18,7 @@ function MessagesList({allMessages, currentUser, socket, username, setUsername, 
    });
 
    const leaveRoom = () => {
-      socket.emit("leave_room", {username, room});
+      socket.emit("leave_room", {username, room, id: socket.id});
       
       setUsername("");
       setRoom("");
