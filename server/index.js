@@ -68,6 +68,9 @@ io.on("connection", socket => { // This means we're listening for an event that 
    });
 
    socket.on("leave_room", data => {
+      // Showing when a user leaves a specific room
+      socket.to(data.room).emit("user_leave", data);
+
       socket.leave(data.room);
       
       allRooms[data.room] = allRooms[data.room]?.filter(data => data.id !== socket.id);
@@ -86,7 +89,7 @@ io.on("connection", socket => { // This means we're listening for an event that 
 
 // "Listen" to a port that we want to use; since React generally defaults to 3000, we're going to be using 3001 here.
 // Second part, pass in a callback function that just logs that our server is up and running
-server.listen(3001, () => {
+server.listen(process.env.PORT || 3001, () => {
    console.log("SERVER RUNNING :^)");
 });
 
