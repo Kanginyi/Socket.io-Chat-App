@@ -18,6 +18,13 @@ app.use(cors());
 // Using the http library, call the function "createServer" and pass the express app we created before inside of here. This will generate the server for us.
 const server = http.createServer(app);
 
+app.get('/', (req, res) => {
+   res
+      .json({ message: "Welcome"})
+      .status(200)
+      .end()
+});
+
 // Create a new instance of the Server class we imported on line 13
 // Pass in the server we created on line 19 to connect both the Socket.io server and the ExpressJS server we created
 // The second argument we pass is going to be an object that will help us deal with the cors/Socket.io issues
