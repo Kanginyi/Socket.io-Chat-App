@@ -13,6 +13,17 @@ function MessageUsers({allUsers}) {
       setShowAllUsers(prev => !prev);
    }
 
+   const centerUsers = () => {
+      const usersDiv = document.querySelector(".show-all-users");
+
+      if (allUsers?.length === 1) {
+         usersDiv?.classList.add("show-single-user");
+      } else {
+         usersDiv?.classList.remove("show-single-user");
+      }
+   }
+   centerUsers();
+
    return (
       <div className="chat-users">
          <button onClick={showUsers}>
