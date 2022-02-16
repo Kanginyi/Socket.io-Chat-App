@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 const io = new Server(server, {
    cors: {
       origin: "https://spacenook-messenger-p4whidbpg-kanginyi.vercel.app/", // Which server is going to be making the calls to our main server; it's okay to accept Socket.io communication with this URL
-      methods: ["GET", "POST"]
+      // methods: ["GET", "POST"]
    }
 });
 
