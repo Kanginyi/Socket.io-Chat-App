@@ -7,7 +7,7 @@ import io from "socket.io-client";
 import { useEffect, useState } from "react";
 
 // Similar to how it is in the backend, we want to create a connection from the frontend to the backend server
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://spacenook-messenger.herokuapp.com/");
 
 function App() {
    const [username, setUsername] = useState("");
