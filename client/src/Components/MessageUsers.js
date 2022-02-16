@@ -13,16 +13,16 @@ function MessageUsers({allUsers}) {
       setShowAllUsers(prev => !prev);
    }
 
-   const centerUsers = () => {
+   const twoColumns = () => {
       const usersDiv = document.querySelector(".show-all-users");
 
-      if (allUsers?.length === 1) {
-         usersDiv?.classList.add("show-single-user");
+      if (allUsers?.length !== 1) {
+         usersDiv?.classList.add("more-than-one-user");
       } else {
-         usersDiv?.classList.remove("show-single-user");
+         usersDiv?.classList.remove("more-than-one-user");
       }
    }
-   centerUsers();
+   twoColumns();
 
    return (
       <div className="chat-users">
