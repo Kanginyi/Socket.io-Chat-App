@@ -264,6 +264,10 @@
    overflow-y: auto;
 }
 
+.show-single-user {
+   grid-template-columns: 1fr;
+}
+
 .chat-dropdown {
    padding: 3px;
 
