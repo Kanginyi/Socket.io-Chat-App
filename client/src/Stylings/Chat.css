@@ -256,16 +256,16 @@
 
 .show-all-users {
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: 1fr;
 
-   padding: 5px;
+   padding: 3px;
 
    max-height: 95px;
    overflow-y: auto;
 }
 
-.show-single-user {
-   grid-template-columns: 1fr;
+.more-than-one-user {
+   grid-template-columns: 1fr 1fr;
 }
 
 .chat-dropdown {
