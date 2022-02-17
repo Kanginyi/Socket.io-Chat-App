@@ -103,8 +103,6 @@ io.on("connection", socket => { // This means we're listening for an event that 
       // Create an array with the disconnectRoomName keys which hold the socket.id and room name, grab the value at index of 1, which will be the room name
       const roomName = Array.from(disconnectRoomName.keys())[1];
 
-      socket.leave(roomName);
-
       socket.to(roomName).emit("user_leave", {id: socket.id, username: "A user has"});
 
       allRooms[roomName] = allRooms[roomName]?.filter(data => data.id !== socket.id);
