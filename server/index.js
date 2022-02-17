@@ -87,9 +87,35 @@ io.on("connection", socket => { // This means we're listening for an event that 
       }
 
       io.to(data.room).emit("all_users", allRooms[data.room]);
+
+      console.log(`User ${data.username} with an ID of: ${socket.id} left room: ${data.room}`);
+   });
+
+   // Hold this variable to set equal to socket.rooms from the disconnecting event
+   let disconnectRoomName;
+
+   socket.on("disconnecting", () => {
+      disconnectRoomName = socket.rooms;
    });
 
    socket.on("disconnect", () => {  // This is "disconnecting" from the server. If someone closes the page or leaves the chatroom/server
+
+      // Create an array with the disconnectRoomName keys which hold the socket.id and room name, grab the value at index of 1, which will be the room name
+      const roomName = Array.from(disconnectRoomName.keys())[1];
+
+      socket.leave(roomName);
+
+      socket.to(roomName).emit("user_leave", {id: socket.id, username: "A user has"});
+
+      allRooms[roomName] = allRooms[roomName]?.filter(data => data.id !== socket.id);
+
+      if (!allRooms[roomName]?.length) {
+         delete allRooms[roomName];
+      }
+
+      io.to(roomName).emit("all_users", allRooms[roomName]);
+
+      console.log(`User with an ID of ${socket.id} left room: ${roomName}`);
       console.log(`User Disconnected: ${socket.id}`);
    });
 });
