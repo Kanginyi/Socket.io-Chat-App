@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 import {BsArrowUpCircleFill, BsArrowDownCircleFill} from "react-icons/bs";
 
@@ -13,26 +13,16 @@ function MessageUsers({allUsers}) {
       setShowAllUsers(prev => !prev);
    }
 
-   // const twoColumns = () => {
-   //    const usersDiv = document.querySelector(".show-all-users");
-
-   //    if (allUsers?.length !== 1) {
-   //       usersDiv?.classList.add("more-than-one-user");
-   //    } else {
-   //       usersDiv?.classList.remove("more-than-one-user");
-   //    }
-   // }
-   // twoColumns();
-
-   useEffect(() => {
+   const twoColumns = () => {
       const usersDiv = document.querySelector(".show-all-users");
 
       if (allUsers?.length !== 1) {
          usersDiv?.classList.add("more-than-one-user");
       } else {
          usersDiv?.classList.remove("more-than-one-user");
-      }  
-   }, []);
+      }
+   }
+   twoColumns();
 
    return (
       <div className="chat-users">
