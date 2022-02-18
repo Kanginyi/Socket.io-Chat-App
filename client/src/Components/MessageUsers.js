@@ -16,10 +16,16 @@ function MessageUsers({allUsers}) {
    const twoColumns = () => {
       const usersDiv = document.querySelector(".show-all-users");
 
-      if (allUsers?.length !== 1) {
-         usersDiv?.classList.add("more-than-one-user");
-      } else {
+      // if (allUsers?.length !== 1) {
+      //    usersDiv?.classList.add("more-than-one-user");
+      // } else {
+      //    usersDiv?.classList.remove("more-than-one-user");
+      // }
+
+      if (allUsers?.length === 1) {
          usersDiv?.classList.remove("more-than-one-user");
+      } else {
+         usersDiv?.classList.add("more-than-one-user");
       }
    }
    twoColumns();
