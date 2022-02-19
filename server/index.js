@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 // The second argument we pass is going to be an object that will help us deal with the cors/Socket.io issues
 const io = new Server(server, {
    cors: {
-      origin: "https://spacenook-messenger.vercel.app/", // Which server is going to be making the calls to our main server; it's okay to accept Socket.io communication with this URL
+      origin: "*", // Which server is going to be making the calls to our main server; it's okay to accept Socket.io communication with this URL
       // methods: ["GET", "POST"]
    }
 });
