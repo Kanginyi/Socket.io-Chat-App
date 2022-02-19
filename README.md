@@ -23,7 +23,7 @@ Chat application for users to send real time messages and interact with each oth
 ________________________________________________________________________
 
 - Implemented Socket.io for bidirectional & low-latency communication between users
-- Utilized ExpressJS to handle client and server interactions
+- Utilized ExpressJS to handle private room information and server-client interactions
 
 <a name="technologies"/>
 
