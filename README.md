@@ -19,7 +19,7 @@ https://spacenook-messenger.vercel.app/
 
 ## Video Demo
 
-<a href="https://www.youtube.com/watch?v=irX-FwkJqN4" target="_blank">Video</a>
+https://www.youtube.com/watch?v=irX-FwkJqN4
 
 <a name="description"/>
 
