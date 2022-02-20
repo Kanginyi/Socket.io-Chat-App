@@ -13,11 +13,15 @@
 
 ## Live Link
 
+`Ctrl` + `Left Click` to open in a new tab!
+
 https://spacenook-messenger.vercel.app/
 
 <a name="video-demo"/>
 
 ## Video Demo
+
+`Ctrl` + `Left Click` to open in a new tab!
 
 https://www.youtube.com/watch?v=irX-FwkJqN4
 
