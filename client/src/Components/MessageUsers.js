@@ -13,17 +13,6 @@ function MessageUsers({allUsers}) {
       setShowAllUsers(prev => !prev);
    }
 
-   const twoColumns = () => {
-      const usersDiv = document.querySelector(".show-all-users");
-
-      if (allUsers?.length !== 1) {
-         usersDiv?.classList.add("more-than-one-user");
-      } else {
-         usersDiv?.classList.remove("more-than-one-user");
-      }
-   }
-   twoColumns();
-
    return (
       <div className="chat-users">
          <button onClick={showUsers}>
@@ -40,7 +29,10 @@ function MessageUsers({allUsers}) {
                showAllUsers
             ?
                <div className="show-all-users">
-                  {renderUsers}
+                  {renderUsers?.length === 1
+                     ? {renderUsers}
+                     : <div className="two-columns">{renderUsers}</div>
+                  }
                </div>
             : 
                <div className="chat-dropdown">
