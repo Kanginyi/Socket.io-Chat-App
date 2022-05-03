@@ -30,7 +30,7 @@ function MessageUsers({allUsers}) {
             ?
                <div className="show-all-users">
                   {renderUsers?.length === 1
-                     ? {renderUsers}
+                     ? <div>{renderUsers}</div>
                      : <div className="two-columns">{renderUsers}</div>
                   }
                </div>
