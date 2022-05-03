@@ -255,16 +255,14 @@
 }
 
 .show-all-users {
-   display: grid;
-   grid-template-columns: 1fr;
-
    padding: 3px;
 
    max-height: 95px;
    overflow-y: auto;
 }
 
-.more-than-one-user {
+.two-columns {
+   display: grid;
    grid-template-columns: 1fr 1fr;
 }
 
