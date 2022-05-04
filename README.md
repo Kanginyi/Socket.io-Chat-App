@@ -43,7 +43,6 @@ ________________________________________________________________________
 - React
 - Socket.io
 - ExpressJS (NodeJS and npm)
-- Heroku CLI
 
 <a name="setup"/>
 
